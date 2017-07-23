@@ -1,3 +1,3 @@
-# Meridio
+# Meridio (July 2017)
 Meridio is a filehosting and filesharing platform with an inbuilt messaging/chatting application.
 ### Work in progress...
