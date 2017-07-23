@@ -1,0 +1,19 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %}Preview{% endblock %}
+{% block content%}
+<br><br><br>
+<div class="container preview">
+    <div class="embed-responsive embed-responsive-16by9 preview-container">
+        <iframe class="embed-responsive-item" src="{{file.upload_obj.url}}" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>
+    </div>
+</div>
+<br><br>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.navlist').removeClass('active');
+  	$('#listShare').addClass('active');
+  	$("body").css('background','url({% static "website/images/previewBack7.jpg" %})');
+});
+</script>
+{% endblock %}

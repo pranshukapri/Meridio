@@ -1,0 +1,60 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %}Repository : {{username}}{% endblock %}
+{% block content %}
+<div class="row">
+	<div class="container-fluid">
+		<div class="col-md-4 col-md-offset-4">
+			<center>
+			<h2 class='repo-text'>Repository of <b><i>{{username}}</i></b></h2><br>
+			<img src='{{ user.profile.avatar.url}}' class="img img-responsive" style='height:250px;width:500px;'/><br>
+			<p class="repo-text" style="font-family:'Play',sans-serif;font-size: 120%;">{{user.profile.bio}}</p>
+			<form role="form" action="{% url 'website:friend' username %}" method="post">
+				{% csrf_token %}
+				<input type="submit" class="btn btn-warning" id="friend" value="{{status}}"/>
+			</form>
+			</center>
+		</div>
+	</div>
+</div>
+<br>
+<h2 class='regHead'>Repository Items</h2>
+{% for item in shared_obj %}
+	<div class='row repo-obj'>
+		<div class='container-fluid'>
+			<div class="row">
+				<div class='col-md-12'>
+					<p>Name/Description : <input type='text' class='form-control' disabled value='{{item.name}}' size='100'></p>
+					<p>Downloads : {{item.num_download}}&nbsp;&nbsp;&nbsp;&nbsp;Views : {{item.views}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-1">
+					<form role='form' action="{% url 'website:download' username item.pk %}" method='post'>
+						{% csrf_token %}
+						<input type='submit' class='btn btn-success btn-sm' value='Download'>
+					</form>
+				</div>
+				<div class="col-md-1">
+					<form role='form' action="{% url 'website:preview' username item.pk %}" method='post'>
+						{% csrf_token %}
+						<input type='submit' class='btn btn-primary btn-sm' value='Preview'>
+					</form>
+				</div>
+				<!--need to add like buttons-->
+			</div>
+		</div>
+	</div>
+{% endfor %}
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.navlist').removeClass('active');
+  	$('#listShare').addClass('active');
+  	$("body").css('background','#003366');
+  	var stat = "{{status}}";
+  	if(stat !== "Send Request")
+  		$("#friend").prop('disabled',true);
+  	//console.log(stat)
+});
+</script>
+{% endblock %}

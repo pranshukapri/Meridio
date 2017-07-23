@@ -1,0 +1,80 @@
+{% extends 'website/base.html' %}
+{% block title %}Log In{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="regHead">Existing User : LOGIN</h1>
+            <br><br>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 style="text-align: center;letter-spacing: 2px;"><b>LOGIN INFORMATION</b></h3>
+                    <br><br>
+                    {% if error_message %}
+                        <p style="color:red;text-align: center;"><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="{% url 'website:login_user'%}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-sm-offset-3" for="id_username">
+                                Username:
+                            </label>
+                            <div class="col-sm-5">
+                                <input id="id_username" maxlength="30" name="username" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-sm-offset-3" for="id_password">
+                                Password:
+                            </label>
+                            <div class="col-sm-5">
+                                <input id="id_password" maxlength="30" name="password" type="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-5 col-sm-5">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    <span>Don't have an account? <a href="{% url 'website:register' %}">Click here</a> to register.</span>&nbsp;&nbsp;
+                    <a href='#' class='forgot' data-toggle="collapse" data-target="#forgot-pass">Forgot Password?</a>
+                    <center>
+                    <br><br>
+                    <form id="forgot-pass" action="{% url 'website:change_password' %}" class="collapse" method='post'>
+                        {% csrf_token %}
+                        <input typr='text' placeholder='Username' size='35' name='forgot_user'/>&nbsp;&nbsp;&nbsp;
+                        <input type='submit' value='Submit' class='btn btn-danger'/>
+                    </form>
+                    <br>
+                    <center>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3 class='regHead'>Merídio</h3><br><br>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2><i>What is Merídio?</i></h2>
+                    <p style='font-size:120%;'>Merídio(<i>Greek</i>-Share) is a free Filehosting platform where users can host their own repositories of files/videos/images etc and thus make it available for download by any of the registered members of the website.The key aim is to create a network of users who can host items in their repositories and allow other people to access the repository contents and also download stuff from others repositories.Merídio also has an inbuilt chat feature where you can add friends via requests and chat with your friends.</p><hr>
+                    <h2><i>How to upload files?</i></h2>
+                    <p style='font-size:120%;'>On your Profile page navigate to -> Materials -> Click Share ->Fill in the form and submit -> your file will be uploaded.</p>
+                </div>               
+                <div class="panel-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+var flag=0;
+$(document).ready(function(){
+    $("body").addClass('regBack');
+    $('.navlist').removeClass('active');
+    $('#listLogin').addClass('active');
+});
+</script>
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends 'website/base.html' %}
+{% block title %}Meridio : Home{% endblock %}
+{% block content%}
+<!-- Intro Header -->
+<header class="intro">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="brand-heading">Merídio</h1>
+	                <div id="typed-strings">
+	               	 	<p class="typed-string">Host Files,Movies,Songs^200</p>
+	               	 	<p class="typed-string">Browse Repositories and Download^200</p>
+                        <p class="typed-string">Create friends and Chat^200</p>
+	               	 	<p class="typed-string">Merídio,Your Online Filehosting and Trading Site</p>
+	               	</div>
+               		<span id="typed"></span>
+                	<br><br>
+                    <p class="intro-text" style="font-size: 150%">A free, Sharing and Trading site where you can host files, converse and check out Others repositories to preview/download thier Stuff.</p>
+                    <a href="#about" class="btn btn-circle page-scroll">
+                        <i class="fa fa-angle-double-down animated"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- About Section -->
+<section id="about" class="container content-section text-center">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <p id="content-head">About Merídio</p><br>
+            <center>
+	            <p>Merídio(<i>Greek</i>-Share) is a free Filehosting platform where users can host their own repositories of files/videos/images etc and thus make it available for download by any of the registered members of the website.The key aim is to create a network of users who can host items in their repositories and allow other people to access the repository contents and also download stuff from others repositories.</p>
+                <p>Merídio also has an inbuilt chat feature where you can add friends via requests and chat with your friends.</p>
+	            <p>Thats about it. So register and Merídio :).</p>
+	            <br>
+	            <div class="row">
+	            	<div class="col-md-offset-2 col-md-4 user-total">
+	            		<span style="font-size: 150%;">Total Users<br>{{total}}</span>
+	            	</div>
+	            	<div class="col-md-4 user-total">
+	            		<span style="font-size: 150%;">Total Repositories<br>{{total}}</span>
+	            	</div>
+	            </div>
+	        </center>
+        </div>
+    </div>
+</section>
+
+<section id="download" class="content-section text-center">
+    <div class="download-section">
+        <div class="container">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Register and Create an account on Merídio</h2>
+                <p>You can register for free on Merídio and access all of its featues.Maintain your profile and gain popularity on your repository.</p>
+                <a href="{% url 'website:login_user' %}" class="btn btn-default btn-lg btn-login">Visit Login Page</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{% url 'website:register' %}" class="btn btn-default btn-lg btn-login">Visit SignUp Page</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="contact" class="container content-section text-center" style="padding-top:90px;padding-bottom:90px;">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>Contact Merídio Support</h2>
+            <p>Feel free to email us to provide some feedback on our features/website, give us suggestions for new features and what other things you want to see on Merídio , or to just say hello!</p>
+            <p><a href="feedback@merídio.com">feedback@merídio.com</a>
+            </p>
+            <ul class="list-inline banner-social-buttons">
+                <li>
+                    <a href="#" class="btn btn-default btn-lg btn-login"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                </li>
+                <li>
+                    <a href="#" class="btn btn-default btn-lg btn-login"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                </li>
+                <li>
+                    <a href="#" class="btn btn-default btn-lg btn-login"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container text-center">
+        <p>Copyright &copy; Merídio@EmberCS15/Github/ @2017</p>
+    </div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+	Typed.new('#typed', {
+		stringsElement: document.getElementById('typed-strings'),
+		typeSpeed : 45
+	});
+});
+$(document).ready(function(){
+	$("body").css("background","black");
+	// jQuery for page scrolling feature - requires jQuery Easing plugin
+	$(function() {
+		$('a.page-scroll').bind('click', function(event) {
+		    var $anchor = $(this);
+		    $('html, body').stop().animate({
+		        scrollTop: $($anchor.attr('href')).offset().top + 150
+		    }, 1500, 'easeInOutExpo');
+		    event.preventDefault();	    
+		});
+	});
+});
+</script>
+{% endblock %}

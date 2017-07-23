@@ -1,0 +1,38 @@
+{% extends 'website/base.html'%}
+{% block title%}Register{% endblock %}
+{% block content %}
+<h1 class="regHead">Welcome New User</h1>
+<br>
+<h2 class="regHead">Create an Account</h2>
+<br>
+<div class="row">
+ 	<div class="container-fluid">
+        <div class="col-md-offset-2 col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="{% url 'website:register' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'website/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+$(document).ready(function(){
+    $("body").addClass("regBack");
+    $('.navlist').removeClass('active');
+    $('#listReg').addClass('active');
+
+});
+</script>
+{% endblock %}

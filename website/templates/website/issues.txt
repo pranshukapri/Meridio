@@ -1,0 +1,5 @@
+1. Creating group of users having a common repository.
+2. Update an existing file that has been hosted.
+4. Make username as pk of User in login_user.
+6. Update home page
+7. Verification upon Registering and Password change
