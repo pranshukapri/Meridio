@@ -120,7 +120,7 @@ $ pip install -r requirements.txt
 #### Run the project
 * To run the project finally type
  ```sh
-$ python manage.py runsurver
+$ python manage.py runserver
  ```
  You are done.Cheers!!!
 
