@@ -79,8 +79,8 @@ Thats about it all to get you started with meridio,the free file hosting social 
  * To the right of the Branch menu, click New pull request.
  * On the next page, click compare across forks.
  * Type a title and description for your pull request.
- * Click Create pull request.
- Now you are done. Happy Contribution!!!
+ * Click Create pull request.<br>
+   Now you are done.Happy Contribution!!!
 ### Installation guide
 #### Cloning the repo
 * Run git/terminal and execute the follwing to clone the repository to your local machine and navigate to the project folder
@@ -102,7 +102,7 @@ Thats about it all to get you started with meridio,the free file hosting social 
 ```sh
  $ workon my_project
  ```
- #### Activation of virtual environment on linux/Mac
+ ###### Activation of virtual environment on linux/Mac
  * Create a virtual environment for a project
  ```sh
  $ cd my_project_folder
@@ -112,7 +112,7 @@ Thats about it all to get you started with meridio,the free file hosting social 
  ```sh
  $ source my_project/bin/activate
  ```
-###### Install Dependencies
+#### Install Dependencies
 * To install files required to run the project execute the following command
  ```sh
 $ pip install -r requirements.txt 
@@ -122,4 +122,6 @@ $ pip install -r requirements.txt
  ```sh
 $ python manage.py runsurver
  ```
+ You are done.Cheers!!!
+
  
